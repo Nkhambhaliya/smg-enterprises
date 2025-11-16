@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us — SMG Enterprises</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>SMG Enterprises</h1>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero hero" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/contact-hero.svg');">
+            <div class="hero-content">
+                <h1>Get in Touch</h1>
+                <p>We are here to answer questions about products, services, or your next project — contact us for a free quote.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h2>Contact Information</h2>
+                    <p><strong>Address:</strong><br>
+                       Survey no 85, irna road<br>
+                    kadi chrtral highway    <br>
+                   Budhasan, Kadi, Mehsana - 384440,<br>
+                   Gujarat, India</p>
+
+                    <p><strong>Phone:</strong> <a href="tel:+919311025966">+91 93110 25966</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:smgenterprises03@gmail.com">smgenterprises03@gmail.com</a></p>
+
+                    <h3>Business Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>
+                       Sunday: Closed</p>
+
+                    <h3>Location</h3>
+                    <p>Click the map to open the location in Google Maps.</p>
+                    <a href="https://www.google.com/maps/search/Plot+No.+2,319+Budhasan+Kadi+Mehsana" target="_blank" rel="noopener">
+                        <img src="images/map-placeholder.svg" alt="Map placeholder" class="map-placeholder">
+                    </a>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Contact Form</h2>
+                    <form id="contact-form">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" required>
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required>
+
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel">
+
+                        <label for="subject">Subject</label>
+                        <input id="subject" name="subject" type="text">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+
+                        <button type="submit" class="cta-button">Submit</button>
+                    </form>
+                    <p id="form-status" aria-live="polite" style="margin-top:1rem"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Survey no 85,<br>
+                   irna road kadi chrtral higway<br>
+                   Budhasan, Kadi, Mehsana - 384440,<br>
+                   Gujarat, India</p>
+                <p>Phone: <a href="tel:+919311025966">+91 93110 25966</a></p>
+                <p>Email: <a href="mailto:smgenterprises03@gmail.com">smgenterprises03@gmail.com</a></p>
+            </div>
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SMG Enterprises. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    // Simple client-side contact form handler — opens mail client with the message (fallback)
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const subject = document.getElementById('subject').value.trim() || 'Contact Form Submission';
+        const message = document.getElementById('message').value.trim();
+
+        const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`
+        );
+
+        // Try opening the user's mail client as a fallback; user can also copy the data
+        const mailto = `mailto:smgenterprises03@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = mailto;
+
+        // Update status message
+        const status = document.getElementById('form-status');
+        status.textContent = 'Opening your email client to send this message — if nothing happens, please email smgenterprises03@gmail.com directly.';
+        status.style.color = 'green';
+        setTimeout(() => status.textContent = '', 8000);
+
+        // Optionally reset the form
+        // document.getElementById('contact-form').reset();
+    });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

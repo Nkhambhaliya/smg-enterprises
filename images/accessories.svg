@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <rect width="500" height="300" fill="#fbfcfe" />
+  <g fill="#1a73e8">
+    <circle cx="80" cy="90" r="18" />
+    <rect x="140" y="72" width="220" height="36" rx="6" />
+    <rect x="60" y="160" width="360" height="12" rx="6" />
+  </g>
+  <text x="50%" y="86%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#333">Accessories (placeholder)</text>
+</svg>
