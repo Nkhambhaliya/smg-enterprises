@@ -124,7 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
     
-    document.querySelectorAll('.card, .feature-card, .service-card').forEach((el) => observer.observe(el));
+    const observeAnimatedElements = (elements = document.querySelectorAll('.card, .feature-card, .service-card')) => {
+        elements.forEach((el) => observer.observe(el));
+    };
+
+    observeAnimatedElements();
 
     // Form submission - mailto handler like original
     const form = document.querySelector('#contact-form');
@@ -151,5 +155,68 @@ document.addEventListener('DOMContentLoaded', () => {
             status.style.color = 'green';
             setTimeout(() => status.textContent = '', 8000);
         });
+    }
+
+    // Render product catalogue from inline data to support file:// usage
+    const productsSection = document.querySelector('[data-products-json]');
+    if (productsSection) {
+        const createProductCard = (product) => {
+            const card = document.createElement('div');
+            card.className = 'product-card card';
+
+            if (product.image) {
+                const img = document.createElement('img');
+                img.src = product.image;
+                img.alt = product.imageAlt || product.name;
+                img.className = 'product-image';
+                card.appendChild(img);
+            }
+
+            const title = document.createElement('h3');
+            title.textContent = product.name;
+            card.appendChild(title);
+
+            if (product.description) {
+                const p = document.createElement('p');
+                p.textContent = product.description;
+                card.appendChild(p);
+            }
+
+            if (Array.isArray(product.features) && product.features.length) {
+                const ul = document.createElement('ul');
+                ul.className = 'product-list';
+                product.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    ul.appendChild(li);
+                });
+                card.appendChild(ul);
+            }
+
+            return card;
+        };
+
+        const renderError = () => {
+            productsSection.innerHTML = `
+                <div class="product-card card error-card">
+                    <h3>Unable to load products</h3>
+                    <p>Please refresh the page or visit our dedicated <a href="products.html">Products</a> page.</p>
+                </div>
+            `;
+        };
+
+        const productsData = Array.isArray(window.__SMG_PRODUCTS__) ? window.__SMG_PRODUCTS__ : null;
+        if (!productsData || !productsData.length) {
+            renderError();
+            return;
+        }
+
+        productsSection.innerHTML = '';
+        productsData.forEach(product => {
+            const card = createProductCard(product);
+            productsSection.appendChild(card);
+        });
+
+        observeAnimatedElements(productsSection.querySelectorAll('.card'));
     }
 });

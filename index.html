@@ -97,59 +97,13 @@
                     <p>Comprehensive range of high-quality shuttering, scaffolding, and formwork systems manufactured in-house.</p>
                 </div>
                 
-                <div class="products-grid grid grid-cols-3">
-                    <div class="product-card card">
-                        <h3>Shuttering & Formwork</h3>
-                        <p>Our shuttering systems are engineered for precision and efficiency, providing the support needed for any concrete structure.</p>
-                        <ul class="product-list">
-                            <li>Adjustable Telescopic Spans</li>
-                            <li>MS Shuttering Plates</li>
-                            <li>Formwork Systems</li>
-                            <li>Column Clamps</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="product-card card">
-                        <h3>Cuplock Verticals</h3>
-                        <p>The foundation of our cuplock system, these verticals provide strong and stable support. The cup and blade system allows for quick and easy erection and dismantling.</p>
-                    </div>
-                    
-                    <div class="product-card card">
-                        <h3>Horizontals / Ledgers</h3>
-                        <p>Ledgers lock into the cuplock verticals to create a rigid and secure scaffolding structure. Available in multiple lengths.</p>
-                    </div>
-
-                    <div class="product-card card">
-                        <h3>Scaffolding</h3>
-                        <p>Our scaffolding systems are designed for safety and efficiency, providing a secure working platform at any height.</p>
-                        <ul class="product-list">
-                            <li>Cuplock Verticals</li>
-                            <li>Horizontals & Ledgers</li>
-                            <li>H-Frames</li>
-                            <li>Base Plates</li>
-                        </ul>
-                    </div>
-
-                    <div class="product-card card">
-                        <h3>Accessories</h3>
-                        <p>We offer a complete range of accessories to complement our shuttering and scaffolding systems.</p>
-                        <ul class="product-list">
-                            <li>Forged Fixed Coupler</li>
-                            <li>Hex Nut with Water Barrier</li>
-                            <li>Anchor Nut</li>
-                            <li>Tie Rod</li>
-                        </ul>
-                    </div>
-
-                    <div class="product-card card">
-                        <h3>Hardware Components</h3>
-                        <p>Premium quality hardware including nuts, bolts, rods, couplers, pins, and connectors for all construction needs.</p>
-                        <ul class="product-list">
-                            <li>Forged Swivel Coupler</li>
-                            <li>Base Jack</li>
-                            <li>Prop Nut</li>
-                            <li>Shear Pin</li>
-                        </ul>
+                <div id="products-content"
+                     class="products-grid grid grid-cols-3"
+                     data-products-json="data/products.json"
+                     aria-live="polite">
+                    <div class="product-card card loading-card">
+                        <h3>Loading products…</h3>
+                        <p>Please wait while we fetch the latest catalogue.</p>
                     </div>
                 </div>
             </div>
@@ -334,10 +288,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 SMG Enterprises. All rights reserved. | Design & Development</p>
+            <p>&copy; 2025 SMG Enterprises. All rights reserved. | NIKK797</p>
         </div>
     </footer>
 
+    <script src="data/products.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
