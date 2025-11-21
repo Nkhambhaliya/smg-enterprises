@@ -8,7 +8,7 @@ window.__SMG_PRODUCTS__ = [
     imageAlt: 'Adjustable Stirrup Head(U Jack)',
     features: [
       'U size 100x100x50 length 350mm',
-      'U size 100x100x50 length 450mm',
+      'U size 100x100x50 length 600mm',
     
     ]
   },
@@ -20,7 +20,7 @@ window.__SMG_PRODUCTS__ = [
     imageAlt: 'Adjustable Base-Jack',
     features: [
       'Base plate 150x150 length 350mm',
-      'Base plate 150x150 length 450mm',
+      'Base plate 150x150 length 600mm',
     
     ]
   },
