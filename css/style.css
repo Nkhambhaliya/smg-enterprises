@@ -1083,6 +1083,39 @@ section {
     flex-direction: column;
 }
 
+.service-process .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.process-step {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+}
+
+.process-step h4 {
+    margin-bottom: 0.25rem;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 999px;
+    background: var(--accent-color);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
 /* Why Choose Us Section */
 .features {
     display: grid;
@@ -1750,5 +1783,52 @@ footer::before {
         animation: none !important;
         transition: none !important;
     }
+}
+
+
+/* horizontal */
+/* Standalone Work Process block */
+.work-process-block {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Header layout: icon + text inline */
+.work-process-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Horizontal steps */
+.work-process-block .process-steps {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-sm);
+  overflow-x: auto;
+}
+
+.work-process-block .process-step {
+  flex: 1 1 220px;
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  background: var(--secondary-color);
+  min-width: 220px;
+}
+
+/* Mobile: stack steps vertically */
+@media (max-width: 640px) {
+  .work-process-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-process-block .process-steps {
+    flex-direction: column;
+    overflow-x: visible;
+  }
 }
 
