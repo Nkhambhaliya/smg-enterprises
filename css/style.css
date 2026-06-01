@@ -1850,13 +1850,43 @@ footer::before {
     z-index: 1000;
     transition: all 0.3s ease;
     text-decoration: none;
+    animation: whatsapp-pulse 2s infinite;
 }
 
 .whatsapp-sticky:hover {
     background-color: #1ebe57;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     color: white;
+    animation: none;
+}
+
+.whatsapp-sticky i {
+    animation: whatsapp-wiggle 4s infinite;
+}
+
+.whatsapp-sticky:hover i {
+    animation: none;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@keyframes whatsapp-wiggle {
+    0%, 15%, 100% { transform: rotate(0deg); }
+    3% { transform: rotate(15deg); }
+    6% { transform: rotate(-10deg); }
+    9% { transform: rotate(5deg); }
+    12% { transform: rotate(-5deg); }
 }
 
 @media (max-width: 767px) {
